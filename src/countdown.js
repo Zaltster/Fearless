@@ -26,7 +26,7 @@ function Countdown() {
         <div style={{ display: 'flex', justifyContent: 'center', height: '100vh' }}>
             <div>
                 <h1>{timeLeft}s</h1>
-                {timeLeft === 0 && <p>{resetCountdown()}</p>}
+                {timeLeft === 0 && <p>{resetCountdown}</p>}
                 <button onClick={resetCountdown}>Lock in</button>
             </div>
         </div>
