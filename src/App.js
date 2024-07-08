@@ -7,16 +7,23 @@ import Countdown from './countdown.js';
 
 function App() {
   const [champ, setChamp] = useState(placeholder);
-  const [lockedChamp, setLockedChamp] = useState(placeholder);
-  const [isLocked, setIsLocked] = useState(false);
+  const [lockedChampLeft, setLockedChampLeft] = useState(placeholder);
+  const [lockedChampRight, setLockedChampRight] = useState(placeholder);
+  const [isLeftLocked, setIsLeftLocked] = useState(false);
+  const [isRightLocked, setIsRightLocked] = useState(false);
 
   const handleLockIn = () => {
-    setIsLocked(true);
-    setLockedChamp(champ); // Lock the current champion
+    if (!isLeftLocked) {
+      setIsLeftLocked(true);
+      setLockedChampLeft(champ); // Lock the current champion for the left side
+    } else if (isLeftLocked && !isRightLocked) {
+      setIsRightLocked(true);
+      setLockedChampRight(champ); // Lock the current champion for the right side
+    }
   };
 
   const handleChampionSelect = (newChamp) => {
-    if (!isLocked) {
+    if (!isLeftLocked || (isLeftLocked && !isRightLocked)) {
       setChamp(newChamp);
     }
   };
@@ -60,13 +67,13 @@ function App() {
 
         <div>
           <button style={{ position: 'absolute', top: 0, right: 0 }}>
-            <img src={champ} alt="Selected Champion" width={100} height={100} />
+            <img src={isRightLocked ? lockedChampRight : placeholder} alt="Right Selected Champion" width={100} height={100} />
           </button>
         </div>
 
         <div>
           <button style={{ position: 'absolute', top: 0, left: 0 }}>
-            <img src={lockedChamp} alt="Locked Champion" width={100} height={100} />
+            <img src={isLeftLocked ? lockedChampLeft : champ} alt="Left Locked Champion" width={100} height={100} />
           </button>
         </div>
 
