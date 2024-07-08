@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-function Countdown() {
-    // Declare state variables
+function Countdown({ champlockin }) {
     const [timeLeft, setTimeLeft] = useState(30);
     const [isActive, setIsActive] = useState(true);
 
-    // useEffect for the countdown logic
     useEffect(() => {
         let timer;
         if (isActive && timeLeft > 0) {
@@ -16,10 +14,14 @@ function Countdown() {
         return () => clearTimeout(timer);
     }, [timeLeft, isActive]);
 
-    // Reset function
     const resetCountdown = () => {
         setTimeLeft(30);
         setIsActive(true);
+    };
+
+    const handleLockIn = () => {
+        champlockin();
+        setIsActive(false);
     };
 
     return (
@@ -27,7 +29,7 @@ function Countdown() {
             <div>
                 <h1>{timeLeft}s</h1>
                 {timeLeft === 0 && <p>{resetCountdown}</p>}
-                <button onClick={resetCountdown}>Lock in</button>
+                <button onClick={handleLockIn}>Lock in</button>
             </div>
         </div>
     );

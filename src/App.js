@@ -7,31 +7,41 @@ import Countdown from './countdown.js';
 
 function App() {
   const [champ, setChamp] = useState(placeholder);
-  const [lockedChampLeft, setLockedChampLeft] = useState(placeholder);
-  const [lockedChampRight, setLockedChampRight] = useState(placeholder);
-  const [isLeftLocked, setIsLeftLocked] = useState(false);
-  const [isRightLocked, setIsRightLocked] = useState(false);
+  const [lockedChamps, setLockedChamps] = useState(Array(10).fill(placeholder));
+  const [lockOrder, setLockOrder] = useState(0);
 
-  const handleLockIn = () => {
-    if (!isLeftLocked) {
-      setIsLeftLocked(true);
-      setLockedChampLeft(champ); // Lock the current champion for the left side
-    } else if (isLeftLocked && !isRightLocked) {
-      setIsRightLocked(true);
-      setLockedChampRight(champ); // Lock the current champion for the right side
+  const lockSequence = [
+    { position: 'left', index: 0 },
+    { position: 'right', index: 1 },
+    { position: 'right', index: 2 },
+    { position: 'left', index: 3 },
+    { position: 'left', index: 4 },
+    { position: 'right', index: 5 },
+    { position: 'right', index: 6 },
+    { position: 'left', index: 7 },
+    { position: 'left', index: 8 },
+    { position: 'right', index: 9 }
+  ];
+
+  const handleChampionSelect = (newChamp) => {
+    if (lockOrder < lockSequence.length) {
+      setChamp(newChamp);
     }
   };
 
-  const handleChampionSelect = (newChamp) => {
-    if (!isLeftLocked || (isLeftLocked && !isRightLocked)) {
-      setChamp(newChamp);
+  const handleLockIn = () => {
+    if (lockOrder < lockSequence.length) {
+      const newLockedChamps = [...lockedChamps];
+      newLockedChamps[lockOrder] = champ;
+      setLockedChamps(newLockedChamps);
+      setLockOrder(lockOrder + 1);
     }
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <Countdown />
+        <Countdown champlockin={handleLockIn} />
 
         <button style={{ position: 'absolute', top: '300px', left: '305px' }} onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Ahri.png")}>
           <img src="https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Ahri.png" className="App-logo" alt="Ahri" width={100} height={100} />
@@ -65,20 +75,46 @@ function App() {
           <img src={aphelios} className="App-logo" alt="Aphelios Local" width={100} height={100} />
         </button>
 
-        <div>
-          <button style={{ position: 'absolute', top: 0, right: 0 }}>
-            <img src={isRightLocked ? lockedChampRight : placeholder} alt="Right Selected Champion" width={100} height={100} />
-          </button>
-        </div>
+        {/* Placeholder buttons on the left */}
+        <button style={{ position: 'absolute', top: '115px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 0}>
+          <img src={lockedChamps[0]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
 
-        <div>
-          <button style={{ position: 'absolute', top: 0, left: 0 }}>
-            <img src={isLeftLocked ? lockedChampLeft : champ} alt="Left Locked Champion" width={100} height={100} />
-          </button>
-        </div>
+        <button style={{ position: 'absolute', top: '230px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 3}>
+          <img src={lockedChamps[3]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
 
-        <button style={{ position: 'absolute', top: '500px', left: '500px' }} onClick={handleLockIn}>
-          Lock In
+        <button style={{ position: 'absolute', top: '345px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 4}>
+          <img src={lockedChamps[4]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
+
+        <button style={{ position: 'absolute', top: '460px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 7}>
+          <img src={lockedChamps[7]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
+
+        <button style={{ position: 'absolute', top: '575px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 8}>
+          <img src={lockedChamps[8]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
+
+        {/* Placeholder buttons on the right */}
+        <button style={{ position: 'absolute', top: '115px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 1}>
+          <img src={lockedChamps[1]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
+
+        <button style={{ position: 'absolute', top: '230px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 2}>
+          <img src={lockedChamps[2]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
+
+        <button style={{ position: 'absolute', top: '345px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 5}>
+          <img src={lockedChamps[5]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
+
+        <button style={{ position: 'absolute', top: '460px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 6}>
+          <img src={lockedChamps[6]} className="App-logo" alt="Placeholder" width={100} height={100} />
+        </button>
+
+        <button style={{ position: 'absolute', top: '575px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 9}>
+          <img src={lockedChamps[9]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
       </header>
     </div>
