@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import akshan from './champs/akshan1.png';
-import aphelios from './champs/aphelios1.png';
 import placeholder from './placeholder.png';
 import './App.css';
 import Countdown from './countdown.js';
@@ -9,7 +7,6 @@ function App() {
   const [champ, setChamp] = useState(placeholder);
   const [lockedChamps, setLockedChamps] = useState(Array(10).fill(placeholder));
   const [lockOrder, setLockOrder] = useState(0);
-
   const lockSequence = [
     { position: 'left', index: 0 },
     { position: 'right', index: 1 },
@@ -24,57 +21,36 @@ function App() {
   ];
 
   const handleChampionSelect = (newChamp) => {
+    console.log("champ select")
+
     if (lockOrder < lockSequence.length) {
       setChamp(newChamp);
+      console.log("champ select")
+      console.log(newChamp)
     }
   };
 
   const handleLockIn = () => {
+    
     if (lockOrder < lockSequence.length) {
       const newLockedChamps = [...lockedChamps];
       newLockedChamps[lockOrder] = champ;
       setLockedChamps(newLockedChamps);
       setLockOrder(lockOrder + 1);
+      console.log("lock in")
+
     }
   };
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header"></header>
+      <div style={{display: 'flex', justifyContent: 'center', height: '20vh'}}>
         <Countdown champlockin={handleLockIn} />
+      </div>
 
-        <button style={{ position: 'absolute', top: '300px', left: '305px' }} onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Ahri.png")}>
-          <img src="https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Ahri.png" className="App-logo" alt="Ahri" width={100} height={100} />
-        </button>
-
-        <button style={{ position: 'absolute', top: '300px', left: '420px' }} onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Aatrox.png")}>
-          <img src="https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Aatrox.png" className="App-logo" alt="Aatrox" width={100} height={100} />
-        </button>
-
-        <button style={{ position: 'absolute', top: '300px', left: '535px' }} onClick={() => handleChampionSelect(akshan)}>
-          <img src={akshan} className="App-logo" alt="Akshan" width={100} height={100} />
-        </button>
-
-        <button style={{ position: 'absolute', top: '300px', left: '650px' }} onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Amumu.png")}>
-          <img src="https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Amumu.png" className="App-logo" alt="Amumu" width={100} height={100} />
-        </button>
-
-        <button style={{ position: 'absolute', top: '300px', left: '765px' }} onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Anivia.png")}>
-          <img src="https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Anivia.png" className="App-logo" alt="Anivia" width={100} height={100} />
-        </button>
-
-        <button style={{ position: 'absolute', top: '300px', left: '880px' }} onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Annie.png")}>
-          <img src="https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Annie.png" className="App-logo" alt="Annie" width={100} height={100} />
-        </button>
-
-        <button style={{ position: 'absolute', top: '300px', left: '995px' }} onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Aphelios.png")}>
-          <img src="https://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Aphelios.png" className="App-logo" alt="Aphelios" width={100} height={100} />
-        </button>
-
-        <button style={{ position: 'absolute', top: '409px', left: '305px' }} onClick={() => handleChampionSelect(aphelios)}>
-          <img src={aphelios} className="App-logo" alt="Aphelios Local" width={100} height={100} />
-        </button>
-
+        <div style ={{display: 'flex'}}>
+        <div class = "blueside">
         {/* Placeholder buttons on the left */}
         <button style={{ position: 'absolute', top: '115px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 0}>
           <img src={lockedChamps[0]} className="App-logo" alt="Placeholder" width={100} height={100} />
@@ -95,8 +71,42 @@ function App() {
         <button style={{ position: 'absolute', top: '575px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 8}>
           <img src={lockedChamps[8]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
+        </div>
+
+        <div class="champs">
+        <div className="champ-row">
+        <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png")}>
+          <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png" className="App-logo" alt="Ahri" width={100} height={100} />
+        </button>
+
+        <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png")}>
+          <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png" className="App-logo" alt="Aatrox" width={100} height={100} />
+        </button>
+
+        <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png")}>
+          <img src={"https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png"} className="App-logo" alt="Akshan" width={100} height={100} />
+        </button>
+
+        <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png")}>
+          <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png" className="App-logo" alt="Amumu" width={100} height={100} />
+        </button>
+
+        <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png")}>
+          <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png" className="App-logo" alt="Anivia" width={100} height={100} />
+        </button>
+
+        <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png")}>
+          <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png" className="App-logo" alt="Annie" width={100} height={100} />
+        </button>
+
+        <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png")}>
+          <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png" className="App-logo" alt="Aphelios" width={100} height={100} />
+        </button>
+        </div>
+        </div>
 
         {/* Placeholder buttons on the right */}
+        <div class="redside">
         <button style={{ position: 'absolute', top: '115px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 1}>
           <img src={lockedChamps[1]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
@@ -116,7 +126,8 @@ function App() {
         <button style={{ position: 'absolute', top: '575px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 9}>
           <img src={lockedChamps[9]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
-      </header>
+        </div>
+        </div>
     </div>
   );
 }

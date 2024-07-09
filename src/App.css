@@ -11,3 +11,30 @@
   padding: 10px 20px;
   font-size: 18px;
 }
+
+.champs {
+  width: 60%;
+}
+
+.blueside {
+  float: left;
+  width: 20%;
+
+}
+
+.redside {
+  float: right;
+  width: 20%;
+
+}
+
+.champ-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.champ-row {
+  margin: auto;
+  padding: 10px;
+}
