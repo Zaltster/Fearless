@@ -1,5 +1,6 @@
 /* App.css */
 
+
 .button {
   display: flex;
   justify-content: center;
@@ -10,4 +11,27 @@
 .button button {
   padding: 10px 20px;
   font-size: 18px;
+}
+
+.champs {
+  color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+
+}
+
+.blueside {
+  float: left;
+  width: 20%;
+
+}
+
+.redside {
+  float: right;
+  width: 20%;
+
 }
