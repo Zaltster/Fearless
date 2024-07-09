@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 function Countdown({ champlockin }) {
     const [timeLeft, setTimeLeft] = useState(30);
     const [isActive, setIsActive] = useState(true);
@@ -21,14 +20,13 @@ function Countdown({ champlockin }) {
 
     const handleLockIn = () => {
         champlockin();
-        setIsActive(false);
+        resetCountdown();
     };
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', height: '100vh' }}>
             <div>
                 <h1>{timeLeft}s</h1>
-                {timeLeft === 0 && <p>{resetCountdown}</p>}
                 <button onClick={handleLockIn}>Lock in</button>
             </div>
         </div>
