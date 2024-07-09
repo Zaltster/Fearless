@@ -74,7 +74,6 @@ function App() {
         </div>
 
         <div class="champs">
-        <div className="champ-row">
         <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png")}>
           <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png" className="App-logo" alt="Ahri" width={100} height={100} />
         </button>
@@ -102,7 +101,6 @@ function App() {
         <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png")}>
           <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png" className="App-logo" alt="Aphelios" width={100} height={100} />
         </button>
-        </div>
         </div>
 
         {/* Placeholder buttons on the right */}

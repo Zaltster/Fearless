@@ -1,5 +1,6 @@
 /* App.css */
 
+
 .button {
   display: flex;
   justify-content: center;
@@ -13,7 +14,14 @@
 }
 
 .champs {
-  width: 60%;
+  color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+
 }
 
 .blueside {
@@ -26,15 +34,4 @@
   float: right;
   width: 20%;
 
-}
-
-.champ-row:after {
-  clear: both;
-  content: '';
-  display: table;
-}
-
-.champ-row {
-  margin: auto;
-  padding: 10px;
 }
