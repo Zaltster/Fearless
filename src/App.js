@@ -3,10 +3,21 @@ import placeholder from './placeholder.png';
 import './App.css';
 import Countdown from './countdown.js';
 
+var champs = {
+  "Ahri": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png",
+  "Aatrox": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png",
+  "Akshan": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png",
+  "Amumu": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png",
+  "Anivia": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png",
+  "Annie": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png",
+  "Aphelios": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png",
+}
+
 function App() {
   const [champ, setChamp] = useState(placeholder);
   const [lockedChamps, setLockedChamps] = useState(Array(20).fill(placeholder));
   const [lockOrder, setLockOrder] = useState(0);
+  const [champImages, setChampImages] = useState(champs);
   const lockSequence = [
     { position: 'left', index: 0 },
     { position: 'right', index: 1 },
@@ -35,20 +46,25 @@ function App() {
 
     if (lockOrder < lockSequence.length) {
       setChamp(newChamp);
-      console.log("champ select")
-      console.log(newChamp)
     }
   };
 
   const handleLockIn = () => {
 
     if (lockOrder < lockSequence.length) {
+
       const newLockedChamps = [...lockedChamps];
       newLockedChamps[lockOrder] = champ;
       setLockedChamps(newLockedChamps);
       setLockOrder(lockOrder + 1);
-      console.log("lock in")
-
+      
+      console.log(champ);
+      var champName = champ.split('/')[7];
+      console.log(champName)
+      champName = champName.split('.')[0];
+      const newChampImages = {...champImages};
+      newChampImages[champName] = "https://raw.githubusercontent.com/Zaltster/Fearless/main/src/greyscale/" + champName + "%203.png";
+      setChampImages(newChampImages);
     }
   };
 
@@ -115,31 +131,31 @@ function App() {
 
         <div class="champs">
           <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png")}>
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png" className="App-logo" alt="Ahri" width={100} height={100} />
+            <img src={champImages["Ahri"]} className="App-logo" alt="Ahri" width={100} height={100} />
           </button>
 
           <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png")}>
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png" className="App-logo" alt="Aatrox" width={100} height={100} />
+            <img src={champImages["Aatrox"]} className="App-logo" alt="Aatrox" width={100} height={100} />
           </button>
 
           <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png")}>
-            <img src={"https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png"} className="App-logo" alt="Akshan" width={100} height={100} />
+            <img src={champImages["Akshan"]} className="App-logo" alt="Akshan" width={100} height={100} />
           </button>
 
           <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png")}>
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png" className="App-logo" alt="Amumu" width={100} height={100} />
+            <img src={champImages["Amumu"]} className="App-logo" alt="Amumu" width={100} height={100} />
           </button>
 
           <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png")}>
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png" className="App-logo" alt="Anivia" width={100} height={100} />
+            <img src={champImages["Anivia"]} className="App-logo" alt="Anivia" width={100} height={100} />
           </button>
 
           <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png")}>
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png" className="App-logo" alt="Annie" width={100} height={100} />
+            <img src={champImages["Annie"]} className="App-logo" alt="Annie" width={100} height={100} />
           </button>
 
           <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png")}>
-            <img src="https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png" className="App-logo" alt="Aphelios" width={100} height={100} />
+            <img src={champImages["Aphelios"]} className="App-logo" alt="Aphelios" width={100} height={100} />
           </button>
         </div>
 
