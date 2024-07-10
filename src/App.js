@@ -68,150 +68,151 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <div style={{ display: 'flex', justifyContent: 'center', height: '20vh' }}>
+      <div className="timer">
         <Countdown champlockin={handleLockIn} />
       </div>
 
-      <div style={{ display: 'flex' }}>
-        <div class="blueside">
+        <div class="blueside-picks">
           {/* Placeholder buttons on the left */}
           {/* b1 */}
-          <button style={{ position: 'absolute', top: '115px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 6}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 6}>
             <img src={lockedChamps[6]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* b2 */}
-          <button style={{ position: 'absolute', top: '230px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 9}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 9}>
             <img src={lockedChamps[9]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* b3 */}
-          <button style={{ position: 'absolute', top: '345px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 10}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 10}>
             <img src={lockedChamps[10]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* b4 */}
-          <button style={{ position: 'absolute', top: '460px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 16}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 16}>
             <img src={lockedChamps[17]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* b5 */}
-          <button style={{ position: 'absolute', top: '575px', left: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 19}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 19}>
             <img src={lockedChamps[18]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
+        </div>
 
+        <div class="blueside-bans">
           {/* bb1 */}
-          <button style={{ position: 'absolute', top: '10px', left: '110px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 0}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 0}>
             <img src={lockedChamps[0]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* bb2 */}
-          <button style={{ position: 'absolute', top: '10px', left: '230px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 2}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 2}>
             <img src={lockedChamps[2]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* bb3 */}
-          <button style={{ position: 'absolute', top: '10px', left: '350px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 4}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 4}>
             <img src={lockedChamps[4]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* bb4 */}
-          <button style={{ position: 'absolute', top: '10px', left: '470px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 13}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 13}>
             <img src={lockedChamps[13]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* bb5 */}
-          <button style={{ position: 'absolute', top: '10px', left: '590px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 15}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 15}>
             <img src={lockedChamps[15]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
         </div>
 
         <div class="champs">
-          <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png")}>
+          <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png")}>
             <img src={champImages["Ahri"]} className="App-logo" alt="Ahri" width={100} height={100} />
           </button>
 
-          <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png")}>
+          <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png")}>
             <img src={champImages["Aatrox"]} className="App-logo" alt="Aatrox" width={100} height={100} />
           </button>
 
-          <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png")}>
+          <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png")}>
             <img src={champImages["Akshan"]} className="App-logo" alt="Akshan" width={100} height={100} />
           </button>
 
-          <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png")}>
+          <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png")}>
             <img src={champImages["Amumu"]} className="App-logo" alt="Amumu" width={100} height={100} />
           </button>
 
-          <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png")}>
+          <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Anivia.png")}>
             <img src={champImages["Anivia"]} className="App-logo" alt="Anivia" width={100} height={100} />
           </button>
 
-          <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png")}>
+          <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Annie.png")}>
             <img src={champImages["Annie"]} className="App-logo" alt="Annie" width={100} height={100} />
           </button>
 
-          <button onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png")}>
+          <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png")}>
             <img src={champImages["Aphelios"]} className="App-logo" alt="Aphelios" width={100} height={100} />
           </button>
         </div>
 
         {/* Placeholder buttons on the right */}
-        <div class="redside">
+        <div class="redside-picks">
           {/* r1 */}
-          <button style={{ position: 'absolute', top: '115px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 7}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 7}>
             <img src={lockedChamps[7]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* r2 */}
-          <button style={{ position: 'absolute', top: '230px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 8}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 8}>
             <img src={lockedChamps[8]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* r3 */}
-          <button style={{ position: 'absolute', top: '345px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 11}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 11}>
             <img src={lockedChamps[11]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* r4 */}
-          <button style={{ position: 'absolute', top: '460px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 16}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 16}>
             <img src={lockedChamps[16]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* r5 */}
-          <button style={{ position: 'absolute', top: '575px', right: '0px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 19}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 19}>
             <img src={lockedChamps[19]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
+        </div>
 
+        <div class="redside-bans">
           {/* rb1 */}
-          <button style={{ position: 'absolute', top: '10px', right: '110px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 1}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 1}>
             <img src={lockedChamps[1]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* rb2 */}
-          <button style={{ position: 'absolute', top: '10px', right: '230px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 3}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 3}>
             <img src={lockedChamps[3]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* rb3 */}
-          <button style={{ position: 'absolute', top: '10px', right: '350px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 5}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 5}>
             <img src={lockedChamps[5]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
           {/* rb4 */}
-          <button style={{ position: 'absolute', top: '10px', right: '470px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 12}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 12}>
             <img src={lockedChamps[12]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
 
 
           {/* rb5 */}
-          <button style={{ position: 'absolute', top: '10px', right: '590px' }} onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 14}>
+          <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 14}>
             <img src={lockedChamps[14]} className="App-logo" alt="Placeholder" width={100} height={100} />
           </button>
         </div>
       </div>
-    </div>
   );
 }
 

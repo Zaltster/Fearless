@@ -1,19 +1,48 @@
 /* App.css */
-
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+body {
+  margin: 0;
 }
 
-.button button {
-  padding: 10px 20px;
-  font-size: 18px;
+#root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden; /* temp */
+  margin:0;
+}
+
+.App {
+  display: grid;
+  font-size: 1.5vh;
+  grid-template-areas:
+    "timer timer timer timer timer"
+    "bluepicks prevbans prevbans prevbans redpicks"
+    "bluepicks champs champs champs redpicks"
+    "bluebans bluebans next-button redbans redbans";
+  grid-template-columns: 17% 21% 24% 21% 17%;
+  grid-template-rows: 10% 20% 58% 12%;
+  height: 100vh;
+  width: 100%;
+  padding:20px;
+}
+
+.timer {
+  grid-area: timer;
+  display: flex;
+  justify-content: center;
+}
+
+.champ-button {
+  margin: 0px;
 }
 
 .champs {
+  align-content: flex-start;
+  align-items: flex-start;
+  grid-area: champs;
   color: transparent;
   display: flex;
   flex-direction: row;
@@ -21,17 +50,30 @@
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-
 }
 
-.blueside {
-  float: left;
-  width: 20%;
-
+.blueside-picks {
+  grid-area: bluepicks;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.redside {
-  float: right;
-  width: 20%;
+.redside-picks {
+  grid-area: redpicks;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
+.blueside-bans {
+  grid-area: bluebans;
+  display: flex;
+  flex-direction: row;
+}
+
+.redside-bans {
+  grid-area: redbans;
+  display: flex;
+  flex-direction: row-reverse;
 }
