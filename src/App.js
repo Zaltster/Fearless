@@ -42,8 +42,6 @@ function App() {
   ];
 
   const handleChampionSelect = (newChamp) => {
-    console.log("champ select")
-
     if (lockOrder < lockSequence.length) {
       setChamp(newChamp);
     }
