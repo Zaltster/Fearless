@@ -39,6 +39,10 @@ body {
   margin: 0px;
 }
 
+.prevbans {
+  grid-area: prevbans;
+}
+
 .champs {
   align-content: flex-start;
   align-items: flex-start;

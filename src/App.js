@@ -127,6 +127,10 @@ function App() {
           </button>
         </div>
 
+        <div class="prevbans">
+          
+        </div>
+
         <div class="champs">
           <button class="champ-button" onClick={() => handleChampionSelect("https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png")}>
             <img src={champImages["Ahri"]} className="App-logo" alt="Ahri" width={100} height={100} />
