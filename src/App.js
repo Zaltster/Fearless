@@ -15,6 +15,15 @@ var champs = {
   "Aphelios": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aphelios.png",
 }
 
+function ChampButton({ champName, champImage, onButtonClick }) {
+  return (
+    <button className="champ-button" onClick={onButtonClick}>
+        <img src={champImage} className="App-logo" alt={champName} width={100} height={100} />
+    </button>
+  );
+}
+
+
 function App() {
   const [champ, setChamp] = useState(placeholder);
   const [lockedChamps, setLockedChamps] = useState(Array(20).fill(placeholder));
@@ -66,6 +75,7 @@ function App() {
       setChampImages(newChampImages);
     }
   };
+
 
   return (
     <div className="App">
@@ -133,11 +143,22 @@ function App() {
         </div>
 
         <div class="champs">
-          <button class="champ-button" onClick={() => handleChampionSelect("Ahri")}>
-            <img src={champImages["Ahri"]} className="App-logo" alt="Ahri" width={100} height={100} />
-          </button>
+          {/*
+            Alternative  way to make champ buttons with a for loop:*/
+            Object.keys(champs).map((c) => (
+              <ChampButton key={c} champName={c} champImage={champImages[c]} onButtonClick={() => handleChampionSelect(c)} />
+            )) 
+          }
 
-          <button class="champ-button" onClick={() => handleChampionSelect("Aatrox")}>
+          {/*<ChampButton champName={"Ahri"} champImage={champImages["Ahri"]} onButtonClick={() => handleChampionSelect("Ahri")} />
+          <ChampButton champName={"Aatrox"} champImage={champImages["Aatrox"]} onButtonClick={() => handleChampionSelect("Aatrox")} />
+          <ChampButton champName={"Akshan"} champImage={champImages["Akshan"]} onButtonClick={() => handleChampionSelect("Akshan")} />
+          <ChampButton champName={"Amumu"} champImage={champImages["Amumu"]} onButtonClick={() => handleChampionSelect("Amumu")} />
+          <ChampButton champName={"Anivia"} champImage={champImages["Anivia"]} onButtonClick={() => handleChampionSelect("Anivia")} />
+          <ChampButton champName={"Annie"} champImage={champImages["Annie"]} onButtonClick={() => handleChampionSelect("Annie")} />
+          <ChampButton champName={"Aphelios"} champImage={champImages["Aphelios"]} onButtonClick={() => handleChampionSelect("Aphelios")} />*/}
+
+          {/*<button class="champ-button" onClick={() => handleChampionSelect("Aatrox")}>
             <img src={champImages["Aatrox"]} className="App-logo" alt="Aatrox" width={100} height={100} />
           </button>
 
@@ -159,7 +180,7 @@ function App() {
 
           <button class="champ-button" onClick={() => handleChampionSelect("Aphelios")}>
             <img src={champImages["Aphelios"]} className="App-logo" alt="Aphelios" width={100} height={100} />
-          </button>
+          </button>*/}
         </div>
 
         {/* Placeholder buttons on the right */}
