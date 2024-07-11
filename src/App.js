@@ -3,8 +3,10 @@ import placeholder from './placeholder.png';
 import './App.css';
 import Countdown from './countdown.js';
 
+const imgSite = "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/";
+
 var champs = {
-  "Ahri": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ahri.png",
+  "Ahri": imgSite + "Ahri.png",
   "Aatrox": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Aatrox.png",
   "Akshan": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Akshan.png",
   "Amumu": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Amumu.png",
@@ -43,7 +45,7 @@ function App() {
 
   const handleChampionSelect = (newChamp) => {
     if (lockOrder < lockSequence.length) {
-      setChamp(newChamp);
+      setChamp( imgSite + newChamp + ".png");
     }
   };
 
@@ -58,7 +60,6 @@ function App() {
       
       console.log(champ);
       var champName = champ.split('/')[7];
-      console.log(champName)
       champName = champName.split('.')[0];
       const newChampImages = {...champImages};
       newChampImages[champName] = "https://raw.githubusercontent.com/Zaltster/Fearless/main/src/greyscale/" + champName + "%203.png";
@@ -132,31 +133,31 @@ function App() {
         </div>
 
         <div class="champs">
-          <button class="champ-button" onClick={() => handleChampionSelect(champImages["Ahri"])}>
+          <button class="champ-button" onClick={() => handleChampionSelect("Ahri")}>
             <img src={champImages["Ahri"]} className="App-logo" alt="Ahri" width={100} height={100} />
           </button>
 
-          <button class="champ-button" onClick={() => handleChampionSelect(champImages["Aatrox"])}>
+          <button class="champ-button" onClick={() => handleChampionSelect("Aatrox")}>
             <img src={champImages["Aatrox"]} className="App-logo" alt="Aatrox" width={100} height={100} />
           </button>
 
-          <button class="champ-button" onClick={() => handleChampionSelect(champImages["Akshan"])}>
+          <button class="champ-button" onClick={() => handleChampionSelect("Akshan")}>
             <img src={champImages["Akshan"]} className="App-logo" alt="Akshan" width={100} height={100} />
           </button>
 
-          <button class="champ-button" onClick={() => handleChampionSelect(champImages["Amumu"])}>
+          <button class="champ-button" onClick={() => handleChampionSelect("Amumu")}>
             <img src={champImages["Amumu"]} className="App-logo" alt="Amumu" width={100} height={100} />
           </button>
 
-          <button class="champ-button" onClick={() => handleChampionSelect(champImages["Anivia"])}>
+          <button class="champ-button" onClick={() => handleChampionSelect("Anivia")}>
             <img src={champImages["Anivia"]} className="App-logo" alt="Anivia" width={100} height={100} />
           </button>
 
-          <button class="champ-button" onClick={() => handleChampionSelect(champImages["Annie"])}>
+          <button class="champ-button" onClick={() => handleChampionSelect("Annie")}>
             <img src={champImages["Annie"]} className="App-logo" alt="Annie" width={100} height={100} />
           </button>
 
-          <button class="champ-button" onClick={() => handleChampionSelect(champImages["Aphelios"])}>
+          <button class="champ-button" onClick={() => handleChampionSelect("Aphelios")}>
             <img src={champImages["Aphelios"]} className="App-logo" alt="Aphelios" width={100} height={100} />
           </button>
         </div>
