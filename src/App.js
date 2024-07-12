@@ -259,54 +259,54 @@ function App() {
       <div className="blueside-picks">
         {/* Placeholder buttons on the left */}
         {/* b1 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 6}>
+        <button disabled={lockOrder > 6}>
           <img src={lockedChamps[6] !== placeholder ? lockedChamps[6] : hoveredChamps[6]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* b2 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 9}>
+        <button disabled={lockOrder > 9}>
           <img src={lockedChamps[9] !== placeholder ? lockedChamps[9] : hoveredChamps[9]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* b3 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 10}>
+        <button disabled={lockOrder > 10}>
           <img src={lockedChamps[10] !== placeholder ? lockedChamps[10] : hoveredChamps[10]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* b4 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 16}>
+        <button disabled={lockOrder > 16}>
           <img src={lockedChamps[17] !== placeholder ? lockedChamps[17] : hoveredChamps[17]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* b5 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 19}>
+        <button disabled={lockOrder > 19}>
           <img src={lockedChamps[18] !== placeholder ? lockedChamps[18] : hoveredChamps[18]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
       </div>
 
       <div className="blueside-bans">
         {/* bb1 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 0}>
+        <button disabled={lockOrder > 0}>
           <img src={lockedChamps[0] !== placeholder ? lockedChamps[0] : hoveredChamps[0]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* bb2 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 2}>
+        <button disabled={lockOrder > 2}>
           <img src={lockedChamps[2] !== placeholder ? lockedChamps[2] : hoveredChamps[2]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* bb3 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 4}>
+        <button disabled={lockOrder > 4}>
           <img src={lockedChamps[4] !== placeholder ? lockedChamps[4] : hoveredChamps[4]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* bb4 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 13}>
+        <button disabled={lockOrder > 13}>
           <img src={lockedChamps[13] !== placeholder ? lockedChamps[13] : hoveredChamps[13]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* bb5 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 15}>
+        <button disabled={lockOrder > 15}>
           <img src={lockedChamps[15] !== placeholder ? lockedChamps[15] : hoveredChamps[15]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
       </div>
@@ -314,54 +314,54 @@ function App() {
       {/* Placeholder buttons on the right */}
       <div className="redside-picks">
         {/* r1 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 7}>
+        <button disabled={lockOrder > 7}>
           <img src={lockedChamps[7] !== placeholder ? lockedChamps[7] : hoveredChamps[7]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* r2 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 8}>
+        <button disabled={lockOrder > 8}>
           <img src={lockedChamps[8] !== placeholder ? lockedChamps[8] : hoveredChamps[8]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* r3 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 11}>
+        <button disabled={lockOrder > 11}>
           <img src={lockedChamps[11] !== placeholder ? lockedChamps[11] : hoveredChamps[11]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* r4 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 16}>
+        <button disabled={lockOrder > 16}>
           <img src={lockedChamps[16] !== placeholder ? lockedChamps[16] : hoveredChamps[16]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* r5 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 19}>
+        <button disabled={lockOrder > 19}>
           <img src={lockedChamps[19] !== placeholder ? lockedChamps[19] : hoveredChamps[19]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
       </div>
 
       <div className="redside-bans">
         {/* rb1 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 1}>
+        <button disabled={lockOrder > 1}>
           <img src={lockedChamps[1] !== placeholder ? lockedChamps[1] : hoveredChamps[1]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* rb2 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 3}>
+        <button disabled={lockOrder > 3}>
           <img src={lockedChamps[3] !== placeholder ? lockedChamps[3] : hoveredChamps[3]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* rb3 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 5}>
+        <button disabled={lockOrder > 5}>
           <img src={lockedChamps[5] !== placeholder ? lockedChamps[5] : hoveredChamps[5]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* rb4 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 12}>
+        <button disabled={lockOrder > 12}>
           <img src={lockedChamps[12] !== placeholder ? lockedChamps[12] : hoveredChamps[12]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
 
         {/* rb5 */}
-        <button onClick={() => handleChampionSelect(placeholder)} disabled={lockOrder > 14}>
+        <button disabled={lockOrder > 14}>
           <img src={lockedChamps[14] !== placeholder ? lockedChamps[14] : hoveredChamps[14]} className="App-logo" alt="Placeholder" width={100} height={100} />
         </button>
       </div>
