@@ -1,15 +1,15 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-
+import os
 # List of regions to fetch data for
-regions = ["LCS+2024+Spring", "LEC+2024+Spring"]
+regions = ["LCS+2024+Spring", "LEC+2024+Spring", "LCK+2024+Spring", "LPL+2024+Spring"]
 
 # Base URL template for pick and ban history
 url_template = "https://lol.fandom.com/wiki/Special:RunQuery/PickBanHistory?PBH%5Bpage%5D={}&PBH%5Bteam%5D=&PBH%5Btextonly%5D%5Bis_checkbox%5D=true&PBH%5Btextonly%5D%5Bvalue%5D=&_run=&pfRunQueryFormName=PickBanHistory&wpRunQuery=&pf_free_text="
 
-# Dictionary to store DataFrames for each region
-region_data = {}
+# List to store DataFrames for each region
+dfs = []
 
 # Loop through each region and fetch the data
 for region in regions:
@@ -26,11 +26,22 @@ for region in regions:
     # Parse the table into a pandas DataFrame
     df = pd.read_html(str(table))[0]
     
-    # Store the DataFrame in the dictionary
-    region_data[region] = df
+    # Add a column for the region
+    df['Region'] = region.replace('+', ' ')
+    
+    # Append the DataFrame to the list
+    dfs.append(df)
 
-# Display the first column for each region
-for region, df in region_data.items():
-    print(f"First column for {region.replace('+', ' ')}:")
-    print(df.iloc[:, 6])  # .iloc[:, 0] selects the first column by index
-    print()
+# Concatenate all DataFrames into a single DataFrame
+combined_df = pd.concat(dfs, ignore_index=True)
+
+# Display the first few rows of the combined DataFrame
+print(combined_df.head())
+
+output_path = os.path.join(os.getcwd(), 'combined_draft_data.csv')
+
+# Save to a CSV file
+combined_df.to_csv(output_path, index=False)
+
+# Print confirmation
+print(f"CSV file saved to: {output_path}")
